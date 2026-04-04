@@ -37,11 +37,11 @@ nav{
   backdrop-filter:blur(2px);
   flex-wrap:wrap;gap:10px;
 }
-.nav-logo{font-size:11px;letter-spacing:0.22em;color:var(--off);text-decoration:none;font-weight:400;}
+.nav-logo{font-size:22px;letter-spacing:0.22em;color:var(--off);text-decoration:none;font-weight:400;}
 .nav-links{display:flex;gap:20px;flex-wrap:wrap;}
-.nav-links a{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s;}
+.nav-links a{font-size:18px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold2);text-decoration:none;transition:color 0.2s;}
 .nav-links a:hover{color:var(--off);}
-.nav-badge{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,163,90,0.4);padding:5px 11px;}
+.nav-badge{font-size:18px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,163,90,0.4);padding:8px 18px;}
 
 /* HERO */
 #hero{
@@ -301,7 +301,7 @@ footer{
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">DenseZK</a>
+  <a class="nav-logo" href="#">DENSE/VM</a>
   <div class="nav-links">
     <a href="#why">Why</a>
     <a href="#how">How</a>
@@ -315,29 +315,29 @@ footer{
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-content">
-    <p class="hero-eyebrow">A new way to look at Zero Knowledge Proofs</p>
-    <h1 class="hero-h1">Condensing<br/><em>Offchain</em><br/>proofs.</h1>
-    <p class="hero-sub">A sub-1MB zkVM that runs entirely on your phone. No server. No trusted party. No data ever leaves the device — only the proof does.</p>
+    <p class="hero-eyebrow">Privacy infrastructure for social networks</p>
+    <h1 class="hero-h1">On-edge,<br/><em>chainless</em><br/>proofs.</h1>
+    <p class="hero-sub">Your phone proves what it needs to — without handing over the data behind it. No servers holding your identity. No companies profiting from your social graph. Just you, your device, and a guarantee.</p>
     <div class="hero-actions">
-      <a href="#" class="btn-primary">Read the docs</a>
+      <a href="#" class="btn-primary">Read the whitepaper</a>
       <a href="#" class="btn-ghost">View on GitHub →</a>
     </div>
   </div>
   <div class="hero-tags">
-    <span class="tag">STARK-based</span>
-    <span class="tag">No trusted setup</span>
-    <span class="tag">WASM-ready</span>
-    <span class="tag">React Native</span>
+    <span class="tag">No server needed</span>
+    <span class="tag">No data shared</span>
     <span class="tag">Open source</span>
+    <span class="tag">Mobile-first</span>
+    <span class="tag">React Native</span>
   </div>
 </section>
 
 <!-- STATS -->
 <div class="stats reveal">
-  <div class="stat-cell"><div class="stat-num">&lt;1<span>MB</span></div><div class="stat-label">Prover binary size</div></div>
-  <div class="stat-cell"><div class="stat-num">6</div><div class="stat-label">Core opcodes</div></div>
-  <div class="stat-cell"><div class="stat-num">0</div><div class="stat-label">Trusted setup ceremonies</div></div>
-  <div class="stat-cell"><div class="stat-num">100<span>%</span></div><div class="stat-label">On-device execution</div></div>
+  <div class="stat-cell"><div class="stat-num">&lt;1<span>MB</span></div><div class="stat-label">Runs on your phone</div></div>
+  <div class="stat-cell"><div class="stat-num">0</div><div class="stat-label">Servers that see your data</div></div>
+  <div class="stat-cell"><div class="stat-num">0</div><div class="stat-label">Trusted third parties</div></div>
+  <div class="stat-cell"><div class="stat-num">100<span>%</span></div><div class="stat-label">On-device computation</div></div>
 </div>
 
 <!-- WHY -->
@@ -345,39 +345,39 @@ footer{
 <section class="section" id="why">
   <div class="section-label">Why DenseVM</div>
   <div class="two-col reveal">
-    <h2 class="section-h2">Privacy is <em>infrastructure,</em> not a feature.</h2>
-    <p class="section-body">Social networks extract identity. DenseVM flips the model — users prove facts about themselves without exposing the underlying data. The proof is the credential. The device is the vault.</p>
+    <h2 class="section-h2">Social networks sell<br/><em>your data.</em> We don't.</h2>
+    <p class="section-body">Every app you use today asks you to hand over personal information just to participate. DenseVM flips that model. Your phone does the verification locally, shares only what's necessary, and keeps everything else locked away — permanently.</p>
   </div>
   <div class="cards">
-    <div class="card reveal"><div class="card-num">01</div><div class="card-title">On-edge proving</div><p class="card-body">The entire ZK proof is generated on your device. No round-trip to a proving server. No latency penalty. No third party that can be compromised or subpoenaed.</p></div>
-    <div class="card reveal"><div class="card-num">02</div><div class="card-title">Sovereign identity</div><p class="card-body">Your identity credentials live in the secure enclave. DenseVM reads them, proves a statement, and discards the rest. The secret never touches the wire.</p></div>
-    <div class="card reveal"><div class="card-num">03</div><div class="card-title">No trusted setup</div><p class="card-body">Built on STARKs — the proof system that requires no ceremony, no powers of tau, no risk from a compromised setup. Transparent and verifiable from day one.</p></div>
-    <div class="card reveal"><div class="card-num">04</div><div class="card-title">Built for social graphs</div><p class="card-body">Prove membership, reputation, and consent without revealing who you are or who you know.</p></div>
+    <div class="card reveal"><div class="card-num">01</div><div class="card-title">Your phone is the vault</div><p class="card-body">All verification happens on your device. Nothing is sent to a server to be processed, stored, or sold. The computation stays local — only a small, unreadable proof is ever transmitted.</p></div>
+    <div class="card reveal"><div class="card-num">02</div><div class="card-title">You own your identity</div><p class="card-body">Your credentials — who you are, what groups you belong to, what you've done — live on your device. DenseVM uses them to verify a claim, then discards the underlying data immediately.</p></div>
+    <div class="card reveal"><div class="card-num">03</div><div class="card-title">No backdoors, no ceremonies</div><p class="card-body">DenseVM is built on a proof system that requires zero trust from any party to set up. There's no committee that could be corrupted, no hidden key that could be stolen.</p></div>
+    <div class="card reveal"><div class="card-num">04</div><div class="card-title">Built for real social apps</div><p class="card-body">Reputation, group membership, consent, age — the things social networks currently store about you — can all be verified privately, without ever creating a data profile.</p></div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<div class="bg-word reveal">Trace</div>
+<div class="bg-word reveal">Verify</div>
 <section class="section" id="how-section" style="min-height:700px;">
   <canvas id="how-canvas"></canvas>
   <div class="how-content" id="how">
     <div class="section-label">How it works</div>
     <div class="two-col reveal">
-      <h2 class="section-h2">Execution trace.<br/><em>Constraint</em> proof.</h2>
-      <p class="section-body">DenseVM runs a minimal virtual machine on-device, records every step of execution as a cryptographic trace, then proves the trace is valid — without revealing the inputs.</p>
+      <h2 class="section-h2">Your device checks.<br/><em>Nobody else</em> does.</h2>
+      <p class="section-body">Think of DenseVM as a notary that lives inside your phone. It checks your credentials, produces a signed statement that they're valid, and hands over only that statement — never the credentials themselves.</p>
     </div>
     <div class="steps">
       <div class="step reveal">
-        <div class="step-num">01 —<br/>Execute</div>
-        <div><h3 class="step-title">Your logic runs locally.</h3><p class="step-body">Identity logic — written in a 6-opcode ISA — runs inside DenseVM. Registers, memory, and program counter update at each step.</p></div>
+        <div class="step-num">01 —<br/>Check</div>
+        <div><h3 class="step-title">Your phone runs the logic.</h3><p class="step-body">Whatever needs to be verified — your age, your membership, your reputation — is checked entirely on your device using a tiny, auditable program. Nothing leaves at this stage.</p></div>
       </div>
       <div class="step reveal">
-        <div class="step-num">02 —<br/>Trace</div>
-        <div><h3 class="step-title">Every step is witnessed.</h3><p class="step-body">Every step is written to an execution trace — a table of machine state at each instruction. This trace is the cryptographic witness to your computation.</p></div>
+        <div class="step-num">02 —<br/>Seal</div>
+        <div><h3 class="step-title">A proof is generated.</h3><p class="step-body">Your device produces a compact cryptographic proof — a mathematically guaranteed statement that the check passed. It contains no personal information. It cannot be reverse-engineered.</p></div>
       </div>
       <div class="step reveal">
-        <div class="step-num">03 —<br/>Prove</div>
-        <div><h3 class="step-title">Only the proof leaves.</h3><p class="step-body">Winterfell proves the trace satisfies all transition constraints. The proof is compact, post-quantum secure, and carries no information about private inputs.</p></div>
+        <div class="step-num">03 —<br/>Share</div>
+        <div><h3 class="step-title">Only the proof travels.</h3><p class="step-body">The proof is sent. The data that produced it never is. Anyone can verify the proof is valid without learning anything about you — and the original data is discarded from memory.</p></div>
       </div>
     </div>
   </div>
@@ -388,16 +388,16 @@ footer{
 <section class="section" id="usecases">
   <div class="section-label">Use cases</div>
   <div class="two-col reveal">
-    <h2 class="section-h2">What you can <em>build.</em></h2>
-    <p class="section-body">Any social primitive that currently requires trusting a server can be replaced by a ZK proof from a phone.</p>
+    <h2 class="section-h2">What becomes<br/><em>possible.</em></h2>
+    <p class="section-body">Any moment a social app currently asks you to trust it with personal data, DenseVM offers an alternative — prove what's needed, share nothing else.</p>
   </div>
   <div class="use-list">
-    <div class="use-item reveal"><div class="use-n">01</div><div class="use-title">Anonymous reputation</div><p class="use-body">Prove you have a high trust score without revealing your account. Reputation without identity exposure.</p></div>
-    <div class="use-item reveal"><div class="use-n">02</div><div class="use-title">Consent-gated discovery</div><p class="use-body">Two users mutually prove interest before any profile is revealed. Matching without surveillance.</p></div>
-    <div class="use-item reveal"><div class="use-n">03</div><div class="use-title">Private group membership</div><p class="use-body">Prove you belong to a group without revealing which member you are.</p></div>
-    <div class="use-item reveal"><div class="use-n">04</div><div class="use-title">Age and credential gating</div><p class="use-body">Prove you are over 18 or hold a credential without submitting a document to any server.</p></div>
-    <div class="use-item reveal"><div class="use-n">05</div><div class="use-title">Decentralized moderation</div><p class="use-body">Communities enforce rules cryptographically — no central moderator seeing your content.</p></div>
-    <div class="use-item reveal"><div class="use-n">06</div><div class="use-title">Sovereign social graph</div><p class="use-body">Prove graph relationships — mutual friends, degrees of separation — without exposing the graph.</p></div>
+    <div class="use-item reveal"><div class="use-n">01</div><div class="use-title">Verify your age privately</div><p class="use-body">Prove you're over 18 without uploading an ID or birthday to any server. The app learns only that the check passed — nothing more.</p></div>
+    <div class="use-item reveal"><div class="use-n">02</div><div class="use-title">Match without being watched</div><p class="use-body">Two people can prove mutual interest before either profile is revealed. No platform sees who showed interest in whom — consent comes first, visibility follows.</p></div>
+    <div class="use-item reveal"><div class="use-n">03</div><div class="use-title">Build reputation without exposure</div><p class="use-body">Prove your trust score or activity history meets a threshold without revealing the underlying actions. Credibility without surveillance.</p></div>
+    <div class="use-item reveal"><div class="use-n">04</div><div class="use-title">Join groups anonymously</div><p class="use-body">Prove you're a member of a community — a university, a neighbourhood, a club — without disclosing which member you are or what else you belong to.</p></div>
+    <div class="use-item reveal"><div class="use-n">05</div><div class="use-title">Vote and react without a trace</div><p class="use-body">Likes, votes, and reactions are provably unique — no one can cheat the count — but they're not tied to your identity or stored in any central database.</p></div>
+    <div class="use-item reveal"><div class="use-n">06</div><div class="use-title">Connect without a data broker</div><p class="use-body">Prove shared connections or proximity in a social graph without the graph itself ever being exposed. Relationships verified, identities protected.</p></div>
   </div>
 </section>
 
@@ -406,13 +406,13 @@ footer{
 <section class="section" id="principles-section">
   <canvas id="principles-canvas"></canvas>
   <div class="principles-content">
-    <div class="section-label">Principles</div>
-    <h2 class="section-h2 reveal">Small <em>by design.</em></h2>
+    <div class="section-label">Our principles</div>
+    <h2 class="section-h2 reveal">Small enough<br/>to <em>trust completely.</em></h2>
     <div class="principles-grid">
-      <div class="principle reveal"><div class="principle-title">6 opcodes only.</div><p class="principle-body">ADD, SUB, LOAD, STORE, JMP, HALT. Every constraint is auditable. No hidden complexity, no attack surface from opcodes you don't use.</p></div>
-      <div class="principle reveal"><div class="principle-title">STARKs, not SNARKs.</div><p class="principle-body">No trusted setup. No elliptic curve assumptions. Post-quantum resistant. Same inputs always produce the same proof.</p></div>
-      <div class="principle reveal"><div class="principle-title">Under 1MB compiled to WASM.</div><p class="principle-body">Fits in a React Native module. Runs without a JIT. Works on a 3-year-old mid-range Android phone.</p></div>
-      <div class="principle reveal"><div class="principle-title">Private inputs stay private.</div><p class="principle-body">The witness — your secret — is consumed locally and discarded. Only the proof and public outputs are transmitted.</p></div>
+      <div class="principle reveal"><div class="principle-title">Deliberately minimal.</div><p class="principle-body">DenseVM does a small number of things and does them provably. A smaller system has fewer places to hide bugs, fewer ways to be compromised, and a smaller surface for anything to go wrong.</p></div>
+      <div class="principle reveal"><div class="principle-title">No trust required.</div><p class="principle-body">The proof system underpinning DenseVM was chosen specifically because it needs no trusted setup — no founding committee, no secret parameters. It works because the math works, full stop.</p></div>
+      <div class="principle reveal"><div class="principle-title">Runs on a mid-range phone.</div><p class="principle-body">Privacy technology that only works on high-end hardware isn't real privacy. DenseVM is engineered to be fast and small enough to run on a 3-year-old Android — because everyone deserves it, not just premium users.</p></div>
+      <div class="principle reveal"><div class="principle-title">Open to inspection.</div><p class="principle-body">Every component is open source. Researchers, security engineers, and curious builders can read every line. Privacy claims that can't be checked are just promises — we'd rather be audited.</p></div>
     </div>
   </div>
 </section>
@@ -421,10 +421,10 @@ footer{
 <div class="cta-section">
   <canvas id="cta-canvas"></canvas>
   <div class="cta-content reveal">
-    <h2 class="cta-h2">Start building <em>sovereign</em> social apps.</h2>
+    <h2 class="cta-h2">The future of social<br/>is <em>private by default.</em></h2>
   </div>
   <div class="cta-right reveal">
-    <p class="cta-body">DenseVM is open source and in active development. The first public release ships with full docs, circuit examples, and a React Native SDK.</p>
+    <p class="cta-body">DenseVM is open source and in active development. The first public release ships with everything builders need — full documentation, example apps, and a React Native SDK ready to drop into any mobile project.</p>
     <div class="cta-actions">
       <a href="#" class="btn-primary">Read the whitepaper</a>
       <a href="#" class="btn-ghost">Join the community →</a>
