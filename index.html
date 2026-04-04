@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>DenseVM — Zero-knowledge virtual machine</title>
+<title>DenseZK — Zero-knowledge virtual machine</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -343,15 +343,15 @@ footer{
 <!-- WHY -->
 <div class="bg-word reveal">Privacy</div>
 <section class="section" id="why">
-  <div class="section-label">Why DenseVM</div>
+  <div class="section-label">Why DenseZK</div>
   <div class="two-col reveal">
     <h2 class="section-h2">Social networks sell<br/><em>your data.</em> We don't.</h2>
-    <p class="section-body">Every app you use today asks you to hand over personal information just to participate. DenseVM flips that model. Your phone does the verification locally, shares only what's necessary, and keeps everything else locked away — permanently.</p>
+    <p class="section-body">Every app you use today asks you to hand over personal information just to participate. DenseZK flips that model. Your phone does the verification locally, shares only what's necessary, and keeps everything else locked away — permanently.</p>
   </div>
   <div class="cards">
     <div class="card reveal"><div class="card-num">01</div><div class="card-title">Your phone is the vault</div><p class="card-body">All verification happens on your device. Nothing is sent to a server to be processed, stored, or sold. The computation stays local — only a small, unreadable proof is ever transmitted.</p></div>
-    <div class="card reveal"><div class="card-num">02</div><div class="card-title">You own your identity</div><p class="card-body">Your credentials — who you are, what groups you belong to, what you've done — live on your device. DenseVM uses them to verify a claim, then discards the underlying data immediately.</p></div>
-    <div class="card reveal"><div class="card-num">03</div><div class="card-title">No backdoors, no ceremonies</div><p class="card-body">DenseVM is built on a proof system that requires zero trust from any party to set up. There's no committee that could be corrupted, no hidden key that could be stolen.</p></div>
+    <div class="card reveal"><div class="card-num">02</div><div class="card-title">You own your identity</div><p class="card-body">Your credentials — who you are, what groups you belong to, what you've done — live on your device. DenseZK uses them to verify a claim, then discards the underlying data immediately.</p></div>
+    <div class="card reveal"><div class="card-num">03</div><div class="card-title">No backdoors, no ceremonies</div><p class="card-body">DenseZK is built on a proof system that requires zero trust from any party to set up. There's no committee that could be corrupted, no hidden key that could be stolen.</p></div>
     <div class="card reveal"><div class="card-num">04</div><div class="card-title">Built for real social apps</div><p class="card-body">Reputation, group membership, consent, age — the things social networks currently store about you — can all be verified privately, without ever creating a data profile.</p></div>
   </div>
 </section>
@@ -364,7 +364,7 @@ footer{
     <div class="section-label">How it works</div>
     <div class="two-col reveal">
       <h2 class="section-h2">Your device checks.<br/><em>Nobody else</em> does.</h2>
-      <p class="section-body">Think of DenseVM as a notary that lives inside your phone. It checks your credentials, produces a signed statement that they're valid, and hands over only that statement — never the credentials themselves.</p>
+      <p class="section-body">Think of DenseZK as a notary that lives inside your phone. It checks your credentials, produces a signed statement that they're valid, and hands over only that statement — never the credentials themselves.</p>
     </div>
     <div class="steps">
       <div class="step reveal">
@@ -389,7 +389,7 @@ footer{
   <div class="section-label">Use cases</div>
   <div class="two-col reveal">
     <h2 class="section-h2">What becomes<br/><em>possible.</em></h2>
-    <p class="section-body">Any moment a social app currently asks you to trust it with personal data, DenseVM offers an alternative — prove what's needed, share nothing else.</p>
+    <p class="section-body">Any moment a social app currently asks you to trust it with personal data, DenseZK offers an alternative — prove what's needed, share nothing else.</p>
   </div>
   <div class="use-list">
     <div class="use-item reveal"><div class="use-n">01</div><div class="use-title">Verify your age privately</div><p class="use-body">Prove you're over 18 without uploading an ID or birthday to any server. The app learns only that the check passed — nothing more.</p></div>
@@ -409,9 +409,9 @@ footer{
     <div class="section-label">Our principles</div>
     <h2 class="section-h2 reveal">Small enough<br/>to <em>trust completely.</em></h2>
     <div class="principles-grid">
-      <div class="principle reveal"><div class="principle-title">Deliberately minimal.</div><p class="principle-body">DenseVM does a small number of things and does them provably. A smaller system has fewer places to hide bugs, fewer ways to be compromised, and a smaller surface for anything to go wrong.</p></div>
-      <div class="principle reveal"><div class="principle-title">No trust required.</div><p class="principle-body">The proof system underpinning DenseVM was chosen specifically because it needs no trusted setup — no founding committee, no secret parameters. It works because the math works, full stop.</p></div>
-      <div class="principle reveal"><div class="principle-title">Runs on a mid-range phone.</div><p class="principle-body">Privacy technology that only works on high-end hardware isn't real privacy. DenseVM is engineered to be fast and small enough to run on a 3-year-old Android — because everyone deserves it, not just premium users.</p></div>
+      <div class="principle reveal"><div class="principle-title">Deliberately minimal.</div><p class="principle-body">DenseZK does a small number of things and does them provably. A smaller system has fewer places to hide bugs, fewer ways to be compromised, and a smaller surface for anything to go wrong.</p></div>
+      <div class="principle reveal"><div class="principle-title">No trust required.</div><p class="principle-body">The proof system underpinning DenseZK was chosen specifically because it needs no trusted setup — no founding committee, no secret parameters. It works because the math works, full stop.</p></div>
+      <div class="principle reveal"><div class="principle-title">Runs on a mid-range phone.</div><p class="principle-body">Privacy technology that only works on high-end hardware isn't real privacy. DenseZK is engineered to be fast and small enough to run on a 3-year-old Android — because everyone deserves it, not just premium users.</p></div>
       <div class="principle reveal"><div class="principle-title">Open to inspection.</div><p class="principle-body">Every component is open source. Researchers, security engineers, and curious builders can read every line. Privacy claims that can't be checked are just promises — we'd rather be audited.</p></div>
     </div>
   </div>
@@ -424,7 +424,7 @@ footer{
     <h2 class="cta-h2">The future of social<br/>is <em>private by default.</em></h2>
   </div>
   <div class="cta-right reveal">
-    <p class="cta-body">DenseVM is open source and in active development. The first public release ships with everything builders need — full documentation, example apps, and a React Native SDK ready to drop into any mobile project.</p>
+    <p class="cta-body">DenseZK is open source and in active development. The first public release ships with everything builders need — full documentation, example apps, and a React Native SDK ready to drop into any mobile project.</p>
     <div class="cta-actions">
       <a href="#" class="btn-primary">Read the whitepaper</a>
       <a href="#" class="btn-ghost">Join the community →</a>
@@ -434,7 +434,7 @@ footer{
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-left">DENSEVM — A Next Tech Lab Initiative · Open Source · MIT License</div>
+  <div class="footer-left">DenseZK — A Next Tech Lab Initiative · Open Source · MIT License</div>
   <div class="footer-links">
     <a href="#">GitHub</a>
     <a href="#">Docs</a>
