@@ -24,7 +24,6 @@
 html{background:var(--ink);color:var(--off);font-family:var(--mono);font-weight:300;scroll-behavior:smooth;}
 body{overflow-x:hidden;}
 
-/* SCROLLBAR */
 ::-webkit-scrollbar{width:3px;}
 ::-webkit-scrollbar-track{background:var(--ink);}
 ::-webkit-scrollbar-thumb{background:var(--gold);}
@@ -33,163 +32,171 @@ body{overflow-x:hidden;}
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
-  padding:24px 56px;
+  padding:20px 24px;
   background:linear-gradient(to bottom,rgba(7,7,10,0.95),transparent);
   backdrop-filter:blur(2px);
+  flex-wrap:wrap;gap:10px;
 }
 .nav-logo{font-size:11px;letter-spacing:0.22em;color:var(--off);text-decoration:none;font-weight:400;}
-.nav-links{display:flex;gap:36px;}
+.nav-links{display:flex;gap:20px;flex-wrap:wrap;}
 .nav-links a{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s;}
 .nav-links a:hover{color:var(--off);}
 .nav-badge{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,163,90,0.4);padding:5px 11px;}
 
-/* ===== HERO SECTION ===== */
+/* HERO */
 #hero{
-  position:relative;height:100vh;display:flex;flex-direction:column;
-  justify-content:flex-end;padding:0 56px 88px;overflow:hidden;
+  position:relative;height:100vh;min-height:600px;display:flex;flex-direction:column;
+  justify-content:flex-end;padding:0 24px 72px;overflow:hidden;
 }
-#hero-canvas{
-  position:absolute;inset:0;width:100%;height:100%;z-index:0;
-}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
 .hero-content{position:relative;z-index:10;}
-.hero-eyebrow{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;}
+.hero-eyebrow{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
 .hero-h1{
-  font-family:var(--serif);font-size:clamp(60px,9vw,120px);
+  font-family:var(--serif);font-size:clamp(48px,9vw,120px);
   font-weight:400;line-height:0.9;letter-spacing:-0.02em;color:var(--off);
 }
 .hero-h1 em{font-style:italic;color:var(--gold2);}
+/* grey body text — was 13px → 19.5px */
 .hero-sub{
-  max-width:400px;font-size:13px;line-height:1.8;color:var(--dim2);
-  margin-top:36px;margin-bottom:44px;font-weight:300;
+  max-width:400px;font-size:19px;line-height:1.8;color:var(--dim2);
+  margin-top:28px;margin-bottom:36px;font-weight:300;
 }
-.hero-actions{display:flex;gap:20px;align-items:center;}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
 .btn-primary{
   font-size:9px;letter-spacing:0.22em;text-transform:uppercase;
   color:var(--ink);background:var(--off);padding:13px 26px;
   text-decoration:none;transition:background 0.2s,color 0.2s;border:none;cursor:pointer;
+  white-space:nowrap;
 }
 .btn-primary:hover{background:var(--gold2);color:var(--ink);}
 .btn-ghost{
   font-size:9px;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--dim);text-decoration:none;transition:color 0.2s;
+  color:var(--dim);text-decoration:none;transition:color 0.2s;white-space:nowrap;
 }
 .btn-ghost:hover{color:var(--off);}
 .hero-tags{
-  position:absolute;right:56px;bottom:88px;z-index:10;
-  display:flex;flex-direction:column;gap:8px;align-items:flex-end;
+  position:absolute;right:24px;bottom:72px;z-index:10;
+  display:flex;flex-direction:column;gap:6px;align-items:flex-end;
 }
 .tag{
   font-size:8px;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--dim);border:1px solid var(--rule);padding:5px 10px;
+  color:var(--dim);border:1px solid var(--rule);padding:4px 8px;
   background:rgba(7,7,10,0.5);backdrop-filter:blur(4px);
 }
 
 /* STATS */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--rule);}
-.stat-cell{padding:48px 40px;border-right:1px solid var(--rule);}
+.stat-cell{padding:40px 24px;border-right:1px solid var(--rule);}
 .stat-cell:last-child{border-right:none;}
-.stat-num{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--off);line-height:1;margin-bottom:10px;}
+.stat-num{font-family:var(--serif);font-size:clamp(32px,5vw,52px);font-weight:400;color:var(--off);line-height:1;margin-bottom:8px;}
 .stat-num span{font-size:0.45em;vertical-align:middle;}
-.stat-label{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);}
+/* grey label — was 9px → ~13px */
+.stat-label{font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);}
 
 /* SECTIONS */
-.section{padding:120px 56px;position:relative;}
+.section{padding:88px 24px;position:relative;}
 .section-label{
   font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);
-  margin-bottom:60px;display:flex;align-items:center;gap:16px;
+  margin-bottom:48px;display:flex;align-items:center;gap:16px;
 }
 .section-label::after{content:'';flex:1;height:1px;background:var(--rule);max-width:100px;}
 .section-h2{
-  font-family:var(--serif);font-size:clamp(34px,4.5vw,64px);
+  font-family:var(--serif);font-size:clamp(28px,4.5vw,64px);
   font-weight:400;line-height:1.08;color:var(--off);
 }
 .section-h2 em{font-style:italic;color:var(--gold2);}
-.section-body{font-size:13px;line-height:1.85;color:var(--dim2);max-width:480px;font-weight:300;}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+/* grey section body — was 13px → 19.5px */
+.section-body{font-size:19px;line-height:1.85;color:var(--dim2);max-width:480px;font-weight:300;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
 
-/* ===== WHY CARDS ===== */
-.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);margin-top:72px;}
-.card{background:var(--ink);padding:44px;transition:background 0.3s;}
+/* WHY CARDS */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);margin-top:60px;}
+.card{background:var(--ink);padding:36px;transition:background 0.3s;}
 .card:hover{background:var(--ink2);}
-.card-num{font-size:9px;letter-spacing:0.22em;color:var(--gold);margin-bottom:20px;}
-.card-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--off);margin-bottom:14px;line-height:1.25;}
-.card-body{font-size:13px;line-height:1.8;color:var(--dim2);font-weight:300;}
+.card-num{font-size:9px;letter-spacing:0.22em;color:var(--gold);margin-bottom:16px;}
+.card-title{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--off);margin-bottom:12px;line-height:1.25;}
+/* grey card body — was 13px → 19.5px */
+.card-body{font-size:19px;line-height:1.8;color:var(--dim2);font-weight:300;}
 
-/* ===== HOW IT WORKS — canvas section ===== */
+/* HOW IT WORKS */
 #how-section{position:relative;overflow:hidden;}
 #how-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
 .how-content{position:relative;z-index:10;}
-.steps{margin-top:72px;}
+.steps{margin-top:60px;}
 .step{
-  display:grid;grid-template-columns:90px 1fr;gap:40px;
-  padding:44px 0;border-top:1px solid var(--rule);align-items:start;
-}
-.step-num{font-size:9px;letter-spacing:0.22em;color:var(--gold);padding-top:4px;line-height:1.8;}
-.step-title{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--off);margin-bottom:14px;}
-.step-body{font-size:13px;line-height:1.8;color:var(--dim2);max-width:520px;font-weight:300;}
-
-/* ===== USE CASES ===== */
-.use-list{margin-top:72px;}
-.use-item{
-  display:grid;grid-template-columns:52px 1fr 1fr;gap:40px;
+  display:grid;grid-template-columns:80px 1fr;gap:32px;
   padding:36px 0;border-top:1px solid var(--rule);align-items:start;
-  transition:background 0.2s;
+}
+/* grey step num — was 9px → ~13px */
+.step-num{font-size:13px;letter-spacing:0.22em;color:var(--gold);padding-top:4px;line-height:1.8;}
+.step-title{font-family:var(--serif);font-size:clamp(20px,3vw,26px);font-weight:400;color:var(--off);margin-bottom:12px;}
+/* grey step body — was 13px → 19.5px */
+.step-body{font-size:19px;line-height:1.8;color:var(--dim2);max-width:520px;font-weight:300;}
+
+/* USE CASES */
+.use-list{margin-top:60px;}
+.use-item{
+  display:grid;grid-template-columns:44px 1fr 1fr;gap:32px;
+  padding:32px 0;border-top:1px solid var(--rule);align-items:start;
+  transition:padding-left 0.2s;
 }
 .use-item:hover{padding-left:8px;}
-.use-n{font-size:9px;letter-spacing:0.2em;color:var(--gold);padding-top:3px;}
-.use-title{font-family:var(--serif);font-size:19px;font-weight:400;color:var(--off);line-height:1.3;}
-.use-body{font-size:13px;line-height:1.8;color:var(--dim2);font-weight:300;}
+/* grey use num — was 9px → ~13px */
+.use-n{font-size:13px;letter-spacing:0.2em;color:var(--gold);padding-top:3px;}
+.use-title{font-family:var(--serif);font-size:clamp(16px,2vw,19px);font-weight:400;color:var(--off);line-height:1.3;}
+/* grey use body — was 13px → 19.5px */
+.use-body{font-size:19px;line-height:1.8;color:var(--dim2);font-weight:300;}
 
-/* ===== PRINCIPLES canvas section ===== */
+/* PRINCIPLES */
 #principles-section{position:relative;overflow:hidden;min-height:700px;}
 #principles-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
 .principles-content{position:relative;z-index:10;}
-.principles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);margin-top:72px;}
-.principle{
-  background:rgba(7,7,10,0.8);padding:44px;
-  backdrop-filter:blur(8px);transition:background 0.3s;
-}
+.principles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);margin-top:60px;}
+.principle{background:rgba(7,7,10,0.8);padding:36px;backdrop-filter:blur(8px);transition:background 0.3s;}
 .principle:hover{background:rgba(14,14,20,0.92);}
-.principle-title{font-family:var(--serif);font-size:19px;font-style:italic;color:var(--gold);margin-bottom:16px;}
-.principle-body{font-size:13px;line-height:1.8;color:var(--dim2);font-weight:300;}
+.principle-title{font-family:var(--serif);font-size:18px;font-style:italic;color:var(--gold);margin-bottom:14px;}
+/* grey principle body — was 13px → 19.5px */
+.principle-body{font-size:19px;line-height:1.8;color:var(--dim2);font-weight:300;}
 
-/* BIG BG TEXT */
+/* BIG BG WORD */
 .bg-word{
-  font-family:var(--serif);font-size:clamp(100px,15vw,200px);
+  font-family:var(--serif);font-size:clamp(80px,15vw,200px);
   color:rgba(240,236,228,0.025);line-height:1;pointer-events:none;
   user-select:none;white-space:nowrap;overflow:hidden;
-  padding:0 56px;margin-bottom:-32px;
+  padding:0 24px;margin-bottom:-24px;
 }
 
 /* CTA */
 .cta-section{
-  padding:160px 56px;border-top:1px solid var(--rule);
-  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;
+  padding:120px 24px;border-top:1px solid var(--rule);
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;
   position:relative;overflow:hidden;
 }
 #cta-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
 .cta-content{position:relative;z-index:10;}
-.cta-h2{font-family:var(--serif);font-size:clamp(38px,5vw,72px);font-weight:400;line-height:1.05;color:var(--off);}
+.cta-h2{font-family:var(--serif);font-size:clamp(30px,5vw,72px);font-weight:400;line-height:1.05;color:var(--off);}
 .cta-h2 em{font-style:italic;color:var(--gold2);}
-.cta-right{position:relative;z-index:10;display:flex;flex-direction:column;gap:22px;}
-.cta-body{font-size:13px;line-height:1.85;color:var(--dim2);font-weight:300;}
-.cta-actions{display:flex;gap:20px;align-items:center;margin-top:8px;}
+.cta-right{position:relative;z-index:10;display:flex;flex-direction:column;gap:20px;}
+/* grey cta body — was 13px → 19.5px */
+.cta-body{font-size:19px;line-height:1.85;color:var(--dim2);font-weight:300;}
+.cta-actions{display:flex;gap:16px;align-items:center;margin-top:8px;flex-wrap:wrap;}
 
 /* FOOTER */
 footer{
-  border-top:1px solid var(--rule);padding:44px 56px;
-  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--rule);padding:36px 24px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
 }
-.footer-left{font-size:9px;letter-spacing:0.15em;color:var(--dim);}
-.footer-links{display:flex;gap:28px;}
-.footer-links a{font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s;}
+/* grey footer text — was 9px → ~13px */
+.footer-left{font-size:13px;letter-spacing:0.12em;color:var(--dim);}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+.footer-links a{font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s;}
 .footer-links a:hover{color:var(--off);}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.75s ease,transform 0.75s ease;}
 .revealed{opacity:1;transform:none;}
 
-/* CURSOR */
+/* CURSOR (desktop only) */
 .cursor{
   position:fixed;width:8px;height:8px;background:var(--gold);
   border-radius:50%;pointer-events:none;z-index:9999;
@@ -200,6 +207,90 @@ footer{
   position:fixed;width:32px;height:32px;border:1px solid rgba(196,163,90,0.5);
   border-radius:50%;pointer-events:none;z-index:9999;
   transform:translate(-50%,-50%);transition:transform 0.18s ease,width 0.25s,height 0.25s;
+}
+
+/* ===================== MOBILE RESPONSIVE ===================== */
+@media(max-width:768px){
+  nav{padding:16px 20px;}
+  .nav-links{display:none;}
+
+  #hero{padding:0 20px 80px;}
+  .hero-h1{font-size:clamp(44px,12vw,80px);}
+  .hero-tags{right:20px;bottom:80px;}
+  .tag{font-size:7px;}
+
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .stat-cell{padding:28px 20px;border-right:none;border-bottom:1px solid var(--rule);}
+  .stat-cell:nth-child(odd){border-right:1px solid var(--rule);}
+  .stat-cell:nth-child(3),.stat-cell:nth-child(4){border-bottom:none;}
+
+  .section{padding:64px 20px;}
+  .two-col{grid-template-columns:1fr;gap:28px;}
+  .section-body{max-width:100%;}
+
+  .cards{grid-template-columns:1fr;}
+  .card{padding:28px 20px;}
+
+  .steps{margin-top:40px;}
+  .step{grid-template-columns:60px 1fr;gap:20px;padding:28px 0;}
+  .step-body{max-width:100%;}
+
+  .use-item{grid-template-columns:36px 1fr;gap:16px;padding:24px 0;}
+  .use-body{display:none;}
+
+  .principles-grid{grid-template-columns:1fr;}
+  .principle{padding:28px 20px;}
+
+  .bg-word{font-size:clamp(56px,18vw,120px);padding:0 20px;}
+
+  .cta-section{grid-template-columns:1fr;padding:80px 20px;gap:36px;}
+
+  footer{padding:28px 20px;}
+  .footer-left{font-size:11px;}
+
+  .cursor,.cursor-ring{display:none;}
+}
+
+@media(max-width:480px){
+  #hero{padding:0 16px 72px;}
+  .hero-sub{font-size:17px;}
+  .hero-tags{display:none;}
+
+  .stats{grid-template-columns:1fr 1fr;}
+  .stat-cell{padding:20px 16px;}
+
+  .section{padding:52px 16px;}
+
+  .cards{gap:1px;}
+  .card{padding:24px 16px;}
+  .card-body{font-size:17px;}
+
+  .step{grid-template-columns:1fr;gap:12px;}
+  .step-num{font-size:11px;}
+  .step-body{font-size:17px;}
+
+  .use-item{grid-template-columns:32px 1fr;gap:12px;}
+
+  .principle-body{font-size:17px;}
+  .section-body{font-size:17px;}
+  .cta-body{font-size:17px;}
+
+  .cta-section{padding:64px 16px;}
+  footer{flex-direction:column;align-items:flex-start;gap:12px;}
+}
+
+@media(min-width:769px) and (max-width:1024px){
+  nav{padding:20px 36px;}
+  #hero{padding:0 36px 80px;}
+  .hero-tags{right:36px;bottom:80px;}
+  .stats{grid-template-columns:repeat(4,1fr);}
+  .stat-cell{padding:36px 28px;}
+  .section{padding:100px 36px;}
+  .bg-word{padding:0 36px;}
+  .cta-section{padding:120px 36px;}
+  footer{padding:36px;}
+  .use-item{grid-template-columns:44px 1fr;}
+  .use-body{display:block;}
 }
 </style>
 </head>
@@ -220,7 +311,7 @@ footer{
   <span class="nav-badge">Alpha</span>
 </nav>
 
-<!-- HERO with WebGL sphere -->
+<!-- HERO -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-content">
@@ -265,7 +356,7 @@ footer{
   </div>
 </section>
 
-<!-- HOW IT WORKS — animated 3D path -->
+<!-- HOW IT WORKS -->
 <div class="bg-word reveal">Trace</div>
 <section class="section" id="how-section" style="min-height:700px;">
   <canvas id="how-canvas"></canvas>
@@ -310,7 +401,7 @@ footer{
   </div>
 </section>
 
-<!-- PRINCIPLES — floating shards -->
+<!-- PRINCIPLES -->
 <div class="bg-word reveal">Design</div>
 <section class="section" id="principles-section">
   <canvas id="principles-canvas"></canvas>
@@ -354,551 +445,194 @@ footer{
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-// ============================================================
 // CURSOR
-// ============================================================
-const cur = document.getElementById('cur');
-const curR = document.getElementById('curR');
+const cur=document.getElementById('cur');
+const curR=document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
 function animCursor(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(animCursor);}
 animCursor();
 
-// ============================================================
 // SCROLL REVEAL
-// ============================================================
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target);}});
 },{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-// ============================================================
-// HERO WEBGL — dark cryptographic orb + particle field
-// ============================================================
+// HERO WEBGL
 (function(){
   const canvas=document.getElementById('hero-canvas');
   const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
   renderer.setSize(canvas.parentElement.clientWidth,canvas.parentElement.clientHeight);
   renderer.setClearColor(0x000000,0);
-
   const scene=new THREE.Scene();
   const camera=new THREE.PerspectiveCamera(60,canvas.parentElement.clientWidth/canvas.parentElement.clientHeight,0.1,100);
   camera.position.set(0,0,5);
-
-  // ambient + point lights
   scene.add(new THREE.AmbientLight(0x1a0a30,1.5));
-  const light1=new THREE.PointLight(0x4a8fff,8,20);
-  light1.position.set(2,2,3);scene.add(light1);
-  const light2=new THREE.PointLight(0xc4a35a,5,18);
-  light2.position.set(-3,1,2);scene.add(light2);
-  const light3=new THREE.PointLight(0x3dd6c8,4,15);
-  light3.position.set(0,-2,3);scene.add(light3);
-
-  // Core sphere — glowing orb
+  const light1=new THREE.PointLight(0x4a8fff,8,20);light1.position.set(2,2,3);scene.add(light1);
+  const light2=new THREE.PointLight(0xc4a35a,5,18);light2.position.set(-3,1,2);scene.add(light2);
+  const light3=new THREE.PointLight(0x3dd6c8,4,15);light3.position.set(0,-2,3);scene.add(light3);
   const sphereGeo=new THREE.SphereGeometry(1.2,64,64);
-  const sphereMat=new THREE.MeshPhysicalMaterial({
-    color:0x0a0a18,
-    metalness:0.95,
-    roughness:0.05,
-    envMapIntensity:1,
-    transparent:true,
-    opacity:0.92,
-  });
-  const sphere=new THREE.Mesh(sphereGeo,sphereMat);
-  sphere.position.set(2,0,0);
-  scene.add(sphere);
-
-  // wireframe overlay on sphere
+  const sphereMat=new THREE.MeshPhysicalMaterial({color:0x0a0a18,metalness:0.95,roughness:0.05,transparent:true,opacity:0.92});
+  const sphere=new THREE.Mesh(sphereGeo,sphereMat);sphere.position.set(2,0,0);scene.add(sphere);
   const wGeo=new THREE.SphereGeometry(1.21,20,20);
   const wMat=new THREE.MeshBasicMaterial({color:0x4a8fff,wireframe:true,transparent:true,opacity:0.08});
-  const wire=new THREE.Mesh(wGeo,wMat);
-  wire.position.copy(sphere.position);
-  scene.add(wire);
-
-  // inner glow sphere
+  const wire=new THREE.Mesh(wGeo,wMat);wire.position.copy(sphere.position);scene.add(wire);
   const glowGeo=new THREE.SphereGeometry(1.0,32,32);
   const glowMat=new THREE.MeshBasicMaterial({color:0x1a2a6a,transparent:true,opacity:0.5,side:THREE.BackSide});
-  const glow=new THREE.Mesh(glowGeo,glowMat);
-  glow.position.copy(sphere.position);
-  scene.add(glow);
-
-  // Rings around sphere
+  const glow=new THREE.Mesh(glowGeo,glowMat);glow.position.copy(sphere.position);scene.add(glow);
   for(let i=0;i<3;i++){
     const rGeo=new THREE.TorusGeometry(1.5+i*0.18,0.004,8,120);
     const rMat=new THREE.MeshBasicMaterial({color:i===0?0x4a8fff:i===1?0xc4a35a:0x3dd6c8,transparent:true,opacity:0.35-i*0.08});
-    const ring=new THREE.Mesh(rGeo,rMat);
-    ring.position.copy(sphere.position);
-    ring.rotation.x=Math.PI/2+i*0.4;
-    ring.rotation.y=i*0.7;
-    scene.add(ring);
+    const ring=new THREE.Mesh(rGeo,rMat);ring.position.copy(sphere.position);ring.rotation.x=Math.PI/2+i*0.4;ring.rotation.y=i*0.7;scene.add(ring);
   }
-
-  // floating particles
-  const pCount=1200;
-  const pGeo=new THREE.BufferGeometry();
-  const pPos=new Float32Array(pCount*3);
-  const pVel=new Float32Array(pCount*3);
-  for(let i=0;i<pCount;i++){
-    pPos[i*3]=(Math.random()-0.5)*18;
-    pPos[i*3+1]=(Math.random()-0.5)*10;
-    pPos[i*3+2]=(Math.random()-0.5)*10-2;
-    pVel[i*3]=(Math.random()-0.5)*0.003;
-    pVel[i*3+1]=(Math.random()-0.5)*0.002;
-    pVel[i*3+2]=0;
-  }
+  const pCount=1200;const pGeo=new THREE.BufferGeometry();const pPos=new Float32Array(pCount*3);const pVel=new Float32Array(pCount*3);
+  for(let i=0;i<pCount;i++){pPos[i*3]=(Math.random()-0.5)*18;pPos[i*3+1]=(Math.random()-0.5)*10;pPos[i*3+2]=(Math.random()-0.5)*10-2;pVel[i*3]=(Math.random()-0.5)*0.003;pVel[i*3+1]=(Math.random()-0.5)*0.002;}
   pGeo.setAttribute('position',new THREE.BufferAttribute(pPos,3));
   const pMat=new THREE.PointsMaterial({color:0xc4a35a,size:0.025,transparent:true,opacity:0.6});
-  const particles=new THREE.Points(pGeo,pMat);
-  scene.add(particles);
-
-  // second particle field — blue
-  const p2Geo=new THREE.BufferGeometry();
-  const p2Pos=new Float32Array(600*3);
-  for(let i=0;i<600;i++){
-    p2Pos[i*3]=(Math.random()-0.5)*14;
-    p2Pos[i*3+1]=(Math.random()-0.5)*8;
-    p2Pos[i*3+2]=(Math.random()-0.5)*6-1;
-  }
+  const particles=new THREE.Points(pGeo,pMat);scene.add(particles);
+  const p2Geo=new THREE.BufferGeometry();const p2Pos=new Float32Array(600*3);
+  for(let i=0;i<600;i++){p2Pos[i*3]=(Math.random()-0.5)*14;p2Pos[i*3+1]=(Math.random()-0.5)*8;p2Pos[i*3+2]=(Math.random()-0.5)*6-1;}
   p2Geo.setAttribute('position',new THREE.BufferAttribute(p2Pos,3));
   const p2Mat=new THREE.PointsMaterial({color:0x4a8fff,size:0.018,transparent:true,opacity:0.4});
-  const particles2=new THREE.Points(p2Geo,p2Mat);
-  scene.add(particles2);
-
-  // mouse parallax
+  scene.add(new THREE.Points(p2Geo,p2Mat));
   let mouseX=0,mouseY=0;
-  document.addEventListener('mousemove',e=>{
-    mouseX=(e.clientX/window.innerWidth-0.5)*2;
-    mouseY=(e.clientY/window.innerHeight-0.5)*2;
-  });
-
+  document.addEventListener('mousemove',e=>{mouseX=(e.clientX/window.innerWidth-0.5)*2;mouseY=(e.clientY/window.innerHeight-0.5)*2;});
   let t=0;
   function render(){
-    t+=0.008;
-    // sphere rotate
-    sphere.rotation.y=t*0.3;
-    sphere.rotation.x=t*0.1;
-    wire.rotation.y=-t*0.2;
-    wire.rotation.x=t*0.15;
-    glow.rotation.y=t*0.2;
-    // sphere float
-    sphere.position.y=Math.sin(t*0.7)*0.2;
-    wire.position.y=sphere.position.y;
-    glow.position.y=sphere.position.y;
-    // rings
-    scene.children.filter(c=>c.geometry&&c.geometry.type==='TorusGeometry').forEach((r,i)=>{
-      r.rotation.z=t*(0.2+i*0.1);
-      r.position.y=sphere.position.y;
-    });
-    // lights orbit
-    light1.position.x=Math.cos(t*0.5)*3;
-    light1.position.z=Math.sin(t*0.5)*3+2;
-    light2.position.x=Math.cos(t*0.3+2)*3;
-    light2.position.z=Math.sin(t*0.3+2)*2+1;
-    // particles drift
+    t+=0.008;sphere.rotation.y=t*0.3;sphere.rotation.x=t*0.1;wire.rotation.y=-t*0.2;wire.rotation.x=t*0.15;glow.rotation.y=t*0.2;
+    sphere.position.y=Math.sin(t*0.7)*0.2;wire.position.y=sphere.position.y;glow.position.y=sphere.position.y;
+    scene.children.filter(c=>c.geometry&&c.geometry.type==='TorusGeometry').forEach((r,i)=>{r.rotation.z=t*(0.2+i*0.1);r.position.y=sphere.position.y;});
+    light1.position.x=Math.cos(t*0.5)*3;light1.position.z=Math.sin(t*0.5)*3+2;light2.position.x=Math.cos(t*0.3+2)*3;light2.position.z=Math.sin(t*0.3+2)*2+1;
     const pp=pGeo.attributes.position.array;
-    for(let i=0;i<pCount;i++){
-      pp[i*3]+=pVel[i*3];
-      pp[i*3+1]+=pVel[i*3+1];
-      if(pp[i*3]>9)pp[i*3]=-9;if(pp[i*3]<-9)pp[i*3]=9;
-      if(pp[i*3+1]>5)pp[i*3+1]=-5;if(pp[i*3+1]<-5)pp[i*3+1]=5;
-    }
+    for(let i=0;i<pCount;i++){pp[i*3]+=pVel[i*3];pp[i*3+1]+=pVel[i*3+1];if(pp[i*3]>9)pp[i*3]=-9;if(pp[i*3]<-9)pp[i*3]=9;if(pp[i*3+1]>5)pp[i*3+1]=-5;if(pp[i*3+1]<-5)pp[i*3+1]=5;}
     pGeo.attributes.position.needsUpdate=true;
-    particles2.rotation.y=t*0.02;
-    // camera parallax
-    camera.position.x+=(mouseX*0.4-camera.position.x)*0.04;
-    camera.position.y+=(-mouseY*0.25-camera.position.y)*0.04;
-    camera.lookAt(0,0,0);
-    renderer.render(scene,camera);
-    requestAnimationFrame(render);
+    p2Geo.userData||(p2Geo.userData={});
+    const p2mesh=scene.children.find(c=>c.geometry===p2Geo);if(p2mesh)p2mesh.rotation.y=t*0.02;
+    camera.position.x+=(mouseX*0.4-camera.position.x)*0.04;camera.position.y+=(-mouseY*0.25-camera.position.y)*0.04;camera.lookAt(0,0,0);
+    renderer.render(scene,camera);requestAnimationFrame(render);
   }
   render();
-
-  window.addEventListener('resize',()=>{
-    const w=canvas.parentElement.clientWidth,h=canvas.parentElement.clientHeight;
-    renderer.setSize(w,h);
-    camera.aspect=w/h;camera.updateProjectionMatrix();
-  });
+  window.addEventListener('resize',()=>{const w=canvas.parentElement.clientWidth,h=canvas.parentElement.clientHeight;renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();});
 })();
 
-// ============================================================
-// HOW IT WORKS WEBGL — animated tube/path like 3D Path spline
-// ============================================================
+// HOW IT WORKS WEBGL
 (function(){
   const canvas=document.getElementById('how-canvas');
   const section=document.getElementById('how-section');
   const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
   renderer.setClearColor(0x000000,0);
-
-  function resize(){
-    renderer.setSize(section.clientWidth,section.clientHeight);
-    camera.aspect=section.clientWidth/section.clientHeight;
-    camera.updateProjectionMatrix();
-  }
-
+  function resize(){renderer.setSize(section.clientWidth,section.clientHeight);camera.aspect=section.clientWidth/section.clientHeight;camera.updateProjectionMatrix();}
   const scene=new THREE.Scene();
   const camera=new THREE.PerspectiveCamera(55,section.clientWidth/section.clientHeight,0.1,100);
-  camera.position.set(0,1,7);
-  resize();
-
+  camera.position.set(0,1,7);resize();
   scene.add(new THREE.AmbientLight(0x0a0a20,2));
   const pl1=new THREE.PointLight(0x3dd6c8,10,20);pl1.position.set(-3,2,3);scene.add(pl1);
   const pl2=new THREE.PointLight(0xc4a35a,8,18);pl2.position.set(3,-1,2);scene.add(pl2);
   const pl3=new THREE.PointLight(0x4a8fff,6,15);pl3.position.set(0,3,1);scene.add(pl3);
-
-  // Create a winding 3D path using CatmullRomCurve3
-  const pathPoints=[
-    new THREE.Vector3(-7,-1.5,0),
-    new THREE.Vector3(-5,1,1),
-    new THREE.Vector3(-3,-0.5,2),
-    new THREE.Vector3(-1,1.5,0.5),
-    new THREE.Vector3(1,-1,1.5),
-    new THREE.Vector3(3,0.8,-0.5),
-    new THREE.Vector3(5,-0.5,1),
-    new THREE.Vector3(7,1,-0.5),
-  ];
+  const pathPoints=[new THREE.Vector3(-7,-1.5,0),new THREE.Vector3(-5,1,1),new THREE.Vector3(-3,-0.5,2),new THREE.Vector3(-1,1.5,0.5),new THREE.Vector3(1,-1,1.5),new THREE.Vector3(3,0.8,-0.5),new THREE.Vector3(5,-0.5,1),new THREE.Vector3(7,1,-0.5)];
   const curve=new THREE.CatmullRomCurve3(pathPoints);
-
-  // Tube geometry
   const tubeSeg=300;
   const tubeGeo=new THREE.TubeGeometry(curve,tubeSeg,0.06,12,false);
-  const tubeMat=new THREE.MeshPhysicalMaterial({
-    color:0x0a1a2a,metalness:0.9,roughness:0.1,
-    emissive:0x0a1a3a,emissiveIntensity:0.3,
-    transparent:true,opacity:0.85,
-  });
-  const tube=new THREE.Mesh(tubeGeo,tubeMat);
-  scene.add(tube);
-
-  // Glowing inner tube
+  const tubeMat=new THREE.MeshPhysicalMaterial({color:0x0a1a2a,metalness:0.9,roughness:0.1,emissive:0x0a1a3a,emissiveIntensity:0.3,transparent:true,opacity:0.85});
+  scene.add(new THREE.Mesh(tubeGeo,tubeMat));
   const innerGeo=new THREE.TubeGeometry(curve,tubeSeg,0.025,8,false);
   const innerMat=new THREE.MeshBasicMaterial({color:0x3dd6c8,transparent:true,opacity:0.6});
-  const innerTube=new THREE.Mesh(innerGeo,innerMat);
-  scene.add(innerTube);
-
-  // Travelling particle along tube
-  const travGeo=new THREE.SphereGeometry(0.12,16,16);
-  const travMat=new THREE.MeshBasicMaterial({color:0xffffff});
-  const travSphere=new THREE.Mesh(travGeo,travMat);
-  scene.add(travSphere);
-
-  // Glow halo around traveller
-  const haloGeo=new THREE.SphereGeometry(0.22,16,16);
-  const haloMat=new THREE.MeshBasicMaterial({color:0x3dd6c8,transparent:true,opacity:0.25,side:THREE.BackSide});
-  const halo=new THREE.Mesh(haloGeo,haloMat);
-  scene.add(halo);
-
-  // Trail particles
-  const trailCount=60;
-  const trailGeo=new THREE.BufferGeometry();
-  const trailPos=new Float32Array(trailCount*3);
-  trailGeo.setAttribute('position',new THREE.BufferAttribute(trailPos,3));
-  const trailMat=new THREE.PointsMaterial({color:0x3dd6c8,size:0.05,transparent:true,opacity:0.5});
-  const trail=new THREE.Points(trailGeo,trailMat);
-  scene.add(trail);
-
-  // Node spheres at key points
+  scene.add(new THREE.Mesh(innerGeo,innerMat));
+  const travGeo=new THREE.SphereGeometry(0.12,16,16);const travMat=new THREE.MeshBasicMaterial({color:0xffffff});const travSphere=new THREE.Mesh(travGeo,travMat);scene.add(travSphere);
+  const haloGeo=new THREE.SphereGeometry(0.22,16,16);const haloMat=new THREE.MeshBasicMaterial({color:0x3dd6c8,transparent:true,opacity:0.25,side:THREE.BackSide});const halo=new THREE.Mesh(haloGeo,haloMat);scene.add(halo);
+  const trailCount=60;const trailGeo=new THREE.BufferGeometry();const trailPos=new Float32Array(trailCount*3);trailGeo.setAttribute('position',new THREE.BufferAttribute(trailPos,3));
+  const trailMat=new THREE.PointsMaterial({color:0x3dd6c8,size:0.05,transparent:true,opacity:0.5});scene.add(new THREE.Points(trailGeo,trailMat));
   pathPoints.forEach((pt,i)=>{
-    const ng=new THREE.SphereGeometry(0.12,16,16);
-    const nm=new THREE.MeshPhysicalMaterial({
-      color:i%2===0?0x1a3a5a:0x3a1a20,
-      metalness:0.9,roughness:0.1,
-      emissive:i%2===0?0x0a2a4a:0x2a0a10,
-      emissiveIntensity:0.6,
-    });
-    const node=new THREE.Mesh(ng,nm);
-    node.position.copy(pt);
-    scene.add(node);
-    // ring around node
-    const rg=new THREE.TorusGeometry(0.22,0.008,8,40);
-    const rm=new THREE.MeshBasicMaterial({color:i%2===0?0x3dd6c8:0xc4a35a,transparent:true,opacity:0.5});
-    const ring=new THREE.Mesh(rg,rm);
-    ring.position.copy(pt);
-    ring.rotation.x=Math.PI/2;
-    scene.add(ring);
+    const ng=new THREE.SphereGeometry(0.12,16,16);const nm=new THREE.MeshPhysicalMaterial({color:i%2===0?0x1a3a5a:0x3a1a20,metalness:0.9,roughness:0.1,emissive:i%2===0?0x0a2a4a:0x2a0a10,emissiveIntensity:0.6});const node=new THREE.Mesh(ng,nm);node.position.copy(pt);scene.add(node);
+    const rg=new THREE.TorusGeometry(0.22,0.008,8,40);const rm=new THREE.MeshBasicMaterial({color:i%2===0?0x3dd6c8:0xc4a35a,transparent:true,opacity:0.5});const ring=new THREE.Mesh(rg,rm);ring.position.copy(pt);ring.rotation.x=Math.PI/2;scene.add(ring);
   });
-
-  // background particles
-  const bgCount=400;
-  const bgGeo=new THREE.BufferGeometry();
-  const bgPos=new Float32Array(bgCount*3);
-  for(let i=0;i<bgCount;i++){
-    bgPos[i*3]=(Math.random()-0.5)*20;
-    bgPos[i*3+1]=(Math.random()-0.5)*10;
-    bgPos[i*3+2]=(Math.random()-0.5)*8-2;
-  }
+  const bgCount=400;const bgGeo=new THREE.BufferGeometry();const bgPos=new Float32Array(bgCount*3);
+  for(let i=0;i<bgCount;i++){bgPos[i*3]=(Math.random()-0.5)*20;bgPos[i*3+1]=(Math.random()-0.5)*10;bgPos[i*3+2]=(Math.random()-0.5)*8-2;}
   bgGeo.setAttribute('position',new THREE.BufferAttribute(bgPos,3));
-  const bgMat=new THREE.PointsMaterial({color:0x4a8fff,size:0.02,transparent:true,opacity:0.3});
-  scene.add(new THREE.Points(bgGeo,bgMat));
-
-  const trailHistory=[];
-  let t2=0;
+  scene.add(new THREE.Points(bgGeo,new THREE.PointsMaterial({color:0x4a8fff,size:0.02,transparent:true,opacity:0.3})));
+  const trailHistory=[];let t2=0;
   function render(){
-    t2+=0.004;
-    const travT=(t2%1);
-    const pos=curve.getPoint(travT);
-    travSphere.position.copy(pos);
-    halo.position.copy(pos);
-    // trail
-    trailHistory.unshift({x:pos.x,y:pos.y,z:pos.z});
-    if(trailHistory.length>trailCount)trailHistory.pop();
-    const tp=trailGeo.attributes.position.array;
-    for(let i=0;i<trailHistory.length;i++){
-      tp[i*3]=trailHistory[i].x;
-      tp[i*3+1]=trailHistory[i].y;
-      tp[i*3+2]=trailHistory[i].z;
-    }
-    trailGeo.attributes.position.needsUpdate=true;
-
-    // glow pulse
+    t2+=0.004;const travT=(t2%1);const pos=curve.getPoint(travT);travSphere.position.copy(pos);halo.position.copy(pos);
+    trailHistory.unshift({x:pos.x,y:pos.y,z:pos.z});if(trailHistory.length>trailCount)trailHistory.pop();
+    const tp=trailGeo.attributes.position.array;for(let i=0;i<trailHistory.length;i++){tp[i*3]=trailHistory[i].x;tp[i*3+1]=trailHistory[i].y;tp[i*3+2]=trailHistory[i].z;}trailGeo.attributes.position.needsUpdate=true;
     haloMat.opacity=0.15+Math.sin(t2*8)*0.1;
-    travMat.color.setHex(0xffffff);
-
-    // node rings rotate
-    scene.children.filter(c=>c.geometry&&c.geometry.type==='TorusGeometry'&&c.geometry.parameters&&c.geometry.parameters.tube===0.008).forEach((r,i)=>{
-      r.rotation.z=t2*(0.5+i*0.2);
-      r.rotation.x=Math.PI/2+Math.sin(t2*0.3+i)*0.3;
-    });
-
-    // tube color shift
-    const hueShift=Math.sin(t2*0.5)*0.1;
-    innerMat.opacity=0.4+Math.sin(t2*2)*0.2;
-
-    pl1.position.x=Math.sin(t2*0.4)*4;
-    pl2.position.x=Math.cos(t2*0.3)*4;
-
-    camera.position.y=1+Math.sin(t2*0.2)*0.3;
-    camera.lookAt(0,0.5,0);
-
-    renderer.render(scene,camera);
-    requestAnimationFrame(render);
+    scene.children.filter(c=>c.geometry&&c.geometry.type==='TorusGeometry'&&c.geometry.parameters&&c.geometry.parameters.tube===0.008).forEach((r,i)=>{r.rotation.z=t2*(0.5+i*0.2);r.rotation.x=Math.PI/2+Math.sin(t2*0.3+i)*0.3;});
+    innerMat.opacity=0.4+Math.sin(t2*2)*0.2;pl1.position.x=Math.sin(t2*0.4)*4;pl2.position.x=Math.cos(t2*0.3)*4;
+    camera.position.y=1+Math.sin(t2*0.2)*0.3;camera.lookAt(0,0.5,0);renderer.render(scene,camera);requestAnimationFrame(render);
   }
-  render();
-  window.addEventListener('resize',resize);
+  render();window.addEventListener('resize',resize);
 })();
 
-// ============================================================
-// PRINCIPLES WEBGL — floating crystalline shards
-// ============================================================
+// PRINCIPLES WEBGL
 (function(){
   const canvas=document.getElementById('principles-canvas');
   const section=document.getElementById('principles-section');
   const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
   renderer.setClearColor(0x000000,0);
-
-  function resize(){
-    renderer.setSize(section.clientWidth,section.clientHeight);
-    camera.aspect=section.clientWidth/section.clientHeight;
-    camera.updateProjectionMatrix();
-  }
-
-  const scene=new THREE.Scene();
-  const camera=new THREE.PerspectiveCamera(65,section.clientWidth/section.clientHeight,0.1,100);
-  camera.position.set(0,0,8);
-  resize();
-
+  function resize(){renderer.setSize(section.clientWidth,section.clientHeight);camera.aspect=section.clientWidth/section.clientHeight;camera.updateProjectionMatrix();}
+  const scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(65,section.clientWidth/section.clientHeight,0.1,100);camera.position.set(0,0,8);resize();
   scene.add(new THREE.AmbientLight(0x080810,1.5));
   const sl1=new THREE.PointLight(0xc4a35a,10,25);sl1.position.set(3,3,4);scene.add(sl1);
   const sl2=new THREE.PointLight(0x4a2a8a,8,20);sl2.position.set(-4,1,3);scene.add(sl2);
   const sl3=new THREE.PointLight(0x3dd6c8,5,18);sl3.position.set(0,-3,4);scene.add(sl3);
-
-  // Create crystal shards using OctahedronGeometry and TetrahedronGeometry
   const shards=[];
-  const shardDefs=[
-    {geo:new THREE.OctahedronGeometry(0.6,0),color:0x1a1a3a,emissive:0x0a0a2a,x:-4,y:2,z:0},
-    {geo:new THREE.TetrahedronGeometry(0.5,0),color:0x1a0a10,emissive:0x0a0008,x:4,y:1.5,z:-1},
-    {geo:new THREE.OctahedronGeometry(0.4,0),color:0x0a1a2a,emissive:0x050a12,x:3,y:-2,z:0.5},
-    {geo:new THREE.TetrahedronGeometry(0.7,0),color:0x1a1a0a,emissive:0x0a0a04,x:-3.5,y:-1.5,z:-0.5},
-    {geo:new THREE.OctahedronGeometry(0.35,0),color:0x1a0a20,emissive:0x0a0510,x:0,y:3,z:-1},
-    {geo:new THREE.TetrahedronGeometry(0.45,0),color:0x0a1a10,emissive:0x050a08,x:-1,y:-2.5,z:0.5},
-    {geo:new THREE.OctahedronGeometry(0.5,0),color:0x1a1030,emissive:0x0a0818,x:5,y:-0.5,z:-0.5},
-    {geo:new THREE.TetrahedronGeometry(0.3,0),color:0x0a1a2a,emissive:0x050a12,x:-5,y:0.5,z:0.5},
-    {geo:new THREE.OctahedronGeometry(0.25,0),color:0x1a1a1a,emissive:0x0a0a0a,x:1.5,y:2.5,z:1},
-    {geo:new THREE.TetrahedronGeometry(0.55,0),color:0x200a1a,emissive:0x100510,x:-2,y:1,z:-1},
-  ];
-
+  const shardDefs=[{geo:new THREE.OctahedronGeometry(0.6,0),color:0x1a1a3a,emissive:0x0a0a2a,x:-4,y:2,z:0},{geo:new THREE.TetrahedronGeometry(0.5,0),color:0x1a0a10,emissive:0x0a0008,x:4,y:1.5,z:-1},{geo:new THREE.OctahedronGeometry(0.4,0),color:0x0a1a2a,emissive:0x050a12,x:3,y:-2,z:0.5},{geo:new THREE.TetrahedronGeometry(0.7,0),color:0x1a1a0a,emissive:0x0a0a04,x:-3.5,y:-1.5,z:-0.5},{geo:new THREE.OctahedronGeometry(0.35,0),color:0x1a0a20,emissive:0x0a0510,x:0,y:3,z:-1},{geo:new THREE.TetrahedronGeometry(0.45,0),color:0x0a1a10,emissive:0x050a08,x:-1,y:-2.5,z:0.5},{geo:new THREE.OctahedronGeometry(0.5,0),color:0x1a1030,emissive:0x0a0818,x:5,y:-0.5,z:-0.5},{geo:new THREE.TetrahedronGeometry(0.3,0),color:0x0a1a2a,emissive:0x050a12,x:-5,y:0.5,z:0.5},{geo:new THREE.OctahedronGeometry(0.25,0),color:0x1a1a1a,emissive:0x0a0a0a,x:1.5,y:2.5,z:1},{geo:new THREE.TetrahedronGeometry(0.55,0),color:0x200a1a,emissive:0x100510,x:-2,y:1,z:-1}];
   shardDefs.forEach((def,i)=>{
-    const mat=new THREE.MeshPhysicalMaterial({
-      color:def.color,
-      metalness:0.95,
-      roughness:0.05,
-      emissive:def.emissive,
-      emissiveIntensity:0.5,
-      transparent:true,
-      opacity:0.88,
-    });
-    const mesh=new THREE.Mesh(def.geo,mat);
-    mesh.position.set(def.x,def.y,def.z);
-    mesh.rotation.set(Math.random()*Math.PI,Math.random()*Math.PI,Math.random()*Math.PI);
-    const seed={
-      rx:(Math.random()-0.5)*0.008,
-      ry:(Math.random()-0.5)*0.012,
-      rz:(Math.random()-0.5)*0.006,
-      floatSpeed:0.3+Math.random()*0.5,
-      floatAmp:0.15+Math.random()*0.2,
-      floatOffset:Math.random()*Math.PI*2,
-      baseY:def.y,
-    };
-    shards.push({mesh,seed,mat});
-    scene.add(mesh);
-
-    // wireframe edge
-    const wGeo=def.geo.clone();
-    const wMat=new THREE.MeshBasicMaterial({color:i%3===0?0xc4a35a:i%3===1?0x4a8fff:0x3dd6c8,wireframe:true,transparent:true,opacity:0.15});
-    const wMesh=new THREE.Mesh(wGeo,wMat);
-    wMesh.position.copy(mesh.position);
-    wMesh.rotation.copy(mesh.rotation);
-    shards[shards.length-1].wire=wMesh;
-    shards[shards.length-1].wireMat=wMat;
-    scene.add(wMesh);
+    const mat=new THREE.MeshPhysicalMaterial({color:def.color,metalness:0.95,roughness:0.05,emissive:def.emissive,emissiveIntensity:0.5,transparent:true,opacity:0.88});
+    const mesh=new THREE.Mesh(def.geo,mat);mesh.position.set(def.x,def.y,def.z);mesh.rotation.set(Math.random()*Math.PI,Math.random()*Math.PI,Math.random()*Math.PI);
+    const seed={rx:(Math.random()-0.5)*0.008,ry:(Math.random()-0.5)*0.012,rz:(Math.random()-0.5)*0.006,floatSpeed:0.3+Math.random()*0.5,floatAmp:0.15+Math.random()*0.2,floatOffset:Math.random()*Math.PI*2,baseY:def.y};
+    const wGeo2=def.geo.clone();const wMat=new THREE.MeshBasicMaterial({color:i%3===0?0xc4a35a:i%3===1?0x4a8fff:0x3dd6c8,wireframe:true,transparent:true,opacity:0.15});const wMesh=new THREE.Mesh(wGeo2,wMat);wMesh.position.copy(mesh.position);wMesh.rotation.copy(mesh.rotation);
+    shards.push({mesh,seed,wire:wMesh,wireMat:wMat,mat});scene.add(mesh);scene.add(wMesh);
   });
-
-  // background grid particles
-  const gCount=500;
-  const gGeo=new THREE.BufferGeometry();
-  const gPos=new Float32Array(gCount*3);
-  for(let i=0;i<gCount;i++){
-    gPos[i*3]=(Math.random()-0.5)*22;
-    gPos[i*3+1]=(Math.random()-0.5)*14;
-    gPos[i*3+2]=(Math.random()-0.5)*8-3;
-  }
+  const gCount=500;const gGeo=new THREE.BufferGeometry();const gPos=new Float32Array(gCount*3);
+  for(let i=0;i<gCount;i++){gPos[i*3]=(Math.random()-0.5)*22;gPos[i*3+1]=(Math.random()-0.5)*14;gPos[i*3+2]=(Math.random()-0.5)*8-3;}
   gGeo.setAttribute('position',new THREE.BufferAttribute(gPos,3));
-  const gMat=new THREE.PointsMaterial({color:0x302820,size:0.025,transparent:true,opacity:0.5});
-  scene.add(new THREE.Points(gGeo,gMat));
-
+  scene.add(new THREE.Points(gGeo,new THREE.PointsMaterial({color:0x302820,size:0.025,transparent:true,opacity:0.5})));
   let mouseX2=0,mouseY2=0;
-  document.addEventListener('mousemove',e=>{
-    mouseX2=(e.clientX/window.innerWidth-0.5);
-    mouseY2=(e.clientY/window.innerHeight-0.5);
-  });
-
+  document.addEventListener('mousemove',e=>{mouseX2=(e.clientX/window.innerWidth-0.5);mouseY2=(e.clientY/window.innerHeight-0.5);});
   let t3=0;
   function render(){
     t3+=0.006;
-    shards.forEach(({mesh,seed,wire,wireMat},i)=>{
-      mesh.rotation.x+=seed.rx;
-      mesh.rotation.y+=seed.ry;
-      mesh.rotation.z+=seed.rz;
-      mesh.position.y=seed.baseY+Math.sin(t3*seed.floatSpeed+seed.floatOffset)*seed.floatAmp;
-      if(wire){
-        wire.rotation.copy(mesh.rotation);
-        wire.position.copy(mesh.position);
-        wireMat.opacity=0.08+Math.sin(t3+i)*0.07;
-      }
-    });
-    sl1.position.x=Math.cos(t3*0.3)*4;
-    sl1.position.y=Math.sin(t3*0.2)*3;
-    sl2.position.x=Math.sin(t3*0.25)*5;
-
-    camera.position.x+=(mouseX2*0.8-camera.position.x)*0.02;
-    camera.position.y+=(-mouseY2*0.5-camera.position.y)*0.02;
-    camera.lookAt(0,0,0);
-
-    renderer.render(scene,camera);
-    requestAnimationFrame(render);
+    shards.forEach(({mesh,seed,wire,wireMat},i)=>{mesh.rotation.x+=seed.rx;mesh.rotation.y+=seed.ry;mesh.rotation.z+=seed.rz;mesh.position.y=seed.baseY+Math.sin(t3*seed.floatSpeed+seed.floatOffset)*seed.floatAmp;if(wire){wire.rotation.copy(mesh.rotation);wire.position.copy(mesh.position);wireMat.opacity=0.08+Math.sin(t3+i)*0.07;}});
+    sl1.position.x=Math.cos(t3*0.3)*4;sl1.position.y=Math.sin(t3*0.2)*3;sl2.position.x=Math.sin(t3*0.25)*5;
+    camera.position.x+=(mouseX2*0.8-camera.position.x)*0.02;camera.position.y+=(-mouseY2*0.5-camera.position.y)*0.02;camera.lookAt(0,0,0);
+    renderer.render(scene,camera);requestAnimationFrame(render);
   }
-  render();
-  window.addEventListener('resize',resize);
+  render();window.addEventListener('resize',resize);
 })();
 
-// ============================================================
-// CTA WEBGL — particle vortex
-// ============================================================
+// CTA WEBGL
 (function(){
-  const canvas=document.getElementById('cta-canvas');
-  const section=canvas.parentElement;
+  const canvas=document.getElementById('cta-canvas');const section=canvas.parentElement;
   const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-  renderer.setClearColor(0x000000,0);
-
-  function resize(){
-    renderer.setSize(section.clientWidth,section.clientHeight);
-    camera.aspect=section.clientWidth/section.clientHeight;
-    camera.updateProjectionMatrix();
-  }
-
-  const scene=new THREE.Scene();
-  const camera=new THREE.PerspectiveCamera(70,section.clientWidth/section.clientHeight,0.1,100);
-  camera.position.set(0,0,6);
-  resize();
-
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));renderer.setClearColor(0x000000,0);
+  function resize(){renderer.setSize(section.clientWidth,section.clientHeight);camera.aspect=section.clientWidth/section.clientHeight;camera.updateProjectionMatrix();}
+  const scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(70,section.clientWidth/section.clientHeight,0.1,100);camera.position.set(0,0,6);resize();
   scene.add(new THREE.AmbientLight(0x050510,1));
-  const cl1=new THREE.PointLight(0xc4a35a,8,20);scene.add(cl1);
-  const cl2=new THREE.PointLight(0x4a8fff,6,18);scene.add(cl2);
-
-  // Vortex particles
-  const vCount=2000;
-  const vGeo=new THREE.BufferGeometry();
-  const vPos=new Float32Array(vCount*3);
-  const vData=[];
-  for(let i=0;i<vCount;i++){
-    const angle=Math.random()*Math.PI*2;
-    const radius=0.5+Math.random()*4;
-    const height=(Math.random()-0.5)*3;
-    vPos[i*3]=Math.cos(angle)*radius;
-    vPos[i*3+1]=height;
-    vPos[i*3+2]=Math.sin(angle)*radius;
-    vData.push({angle,radius,height,speed:0.002+Math.random()*0.004,drift:(Math.random()-0.5)*0.0003});
-  }
+  const cl1=new THREE.PointLight(0xc4a35a,8,20);scene.add(cl1);const cl2=new THREE.PointLight(0x4a8fff,6,18);scene.add(cl2);
+  const vCount=2000;const vGeo=new THREE.BufferGeometry();const vPos=new Float32Array(vCount*3);const vData=[];
+  for(let i=0;i<vCount;i++){const angle=Math.random()*Math.PI*2;const radius=0.5+Math.random()*4;const height=(Math.random()-0.5)*3;vPos[i*3]=Math.cos(angle)*radius;vPos[i*3+1]=height;vPos[i*3+2]=Math.sin(angle)*radius;vData.push({angle,radius,height,speed:0.002+Math.random()*0.004,drift:(Math.random()-0.5)*0.0003});}
   vGeo.setAttribute('position',new THREE.BufferAttribute(vPos,3));
-  const vMat=new THREE.PointsMaterial({
-    color:0xc4a35a,size:0.03,transparent:true,opacity:0.5,
-    vertexColors:false,
-  });
-  const vortex=new THREE.Points(vGeo,vMat);
-  scene.add(vortex);
-
-  // secondary blue field
-  const v2Count=800;
-  const v2Geo=new THREE.BufferGeometry();
-  const v2Pos=new Float32Array(v2Count*3);
-  const v2Data=[];
-  for(let i=0;i<v2Count;i++){
-    const angle=Math.random()*Math.PI*2;
-    const radius=1+Math.random()*3;
-    v2Pos[i*3]=Math.cos(angle)*radius;
-    v2Pos[i*3+1]=(Math.random()-0.5)*2;
-    v2Pos[i*3+2]=Math.sin(angle)*radius;
-    v2Data.push({angle,radius,speed:0.003+Math.random()*0.003});
-  }
+  const vMat=new THREE.PointsMaterial({color:0xc4a35a,size:0.03,transparent:true,opacity:0.5});scene.add(new THREE.Points(vGeo,vMat));
+  const v2Count=800;const v2Geo=new THREE.BufferGeometry();const v2Pos=new Float32Array(v2Count*3);const v2Data=[];
+  for(let i=0;i<v2Count;i++){const angle=Math.random()*Math.PI*2;const radius=1+Math.random()*3;v2Pos[i*3]=Math.cos(angle)*radius;v2Pos[i*3+1]=(Math.random()-0.5)*2;v2Pos[i*3+2]=Math.sin(angle)*radius;v2Data.push({angle,radius,speed:0.003+Math.random()*0.003});}
   v2Geo.setAttribute('position',new THREE.BufferAttribute(v2Pos,3));
-  const v2Mat=new THREE.PointsMaterial({color:0x4a8fff,size:0.02,transparent:true,opacity:0.35});
-  scene.add(new THREE.Points(v2Geo,v2Mat));
-
+  scene.add(new THREE.Points(v2Geo,new THREE.PointsMaterial({color:0x4a8fff,size:0.02,transparent:true,opacity:0.35})));
   let t4=0;
   function render(){
     t4+=0.01;
-    const vp=vGeo.attributes.position.array;
-    for(let i=0;i<vCount;i++){
-      vData[i].angle+=vData[i].speed;
-      vData[i].height+=vData[i].drift;
-      if(vData[i].height>1.8)vData[i].height=-1.8;
-      if(vData[i].height<-1.8)vData[i].height=1.8;
-      vp[i*3]=Math.cos(vData[i].angle)*vData[i].radius;
-      vp[i*3+1]=vData[i].height;
-      vp[i*3+2]=Math.sin(vData[i].angle)*vData[i].radius;
-    }
+    const vp=vGeo.attributes.position.array;for(let i=0;i<vCount;i++){vData[i].angle+=vData[i].speed;vData[i].height+=vData[i].drift;if(vData[i].height>1.8)vData[i].height=-1.8;if(vData[i].height<-1.8)vData[i].height=1.8;vp[i*3]=Math.cos(vData[i].angle)*vData[i].radius;vp[i*3+1]=vData[i].height;vp[i*3+2]=Math.sin(vData[i].angle)*vData[i].radius;}
     vGeo.attributes.position.needsUpdate=true;
-
-    const v2p=v2Geo.attributes.position.array;
-    for(let i=0;i<v2Count;i++){
-      v2Data[i].angle-=v2Data[i].speed*0.7;
-      v2p[i*3]=Math.cos(v2Data[i].angle)*v2Data[i].radius;
-      v2p[i*3+2]=Math.sin(v2Data[i].angle)*v2Data[i].radius;
-    }
+    const v2p=v2Geo.attributes.position.array;for(let i=0;i<v2Count;i++){v2Data[i].angle-=v2Data[i].speed*0.7;v2p[i*3]=Math.cos(v2Data[i].angle)*v2Data[i].radius;v2p[i*3+2]=Math.sin(v2Data[i].angle)*v2Data[i].radius;}
     v2Geo.attributes.position.needsUpdate=true;
-
-    cl1.position.set(Math.cos(t4*0.4)*3,Math.sin(t4*0.3)*2,2);
-    cl2.position.set(Math.cos(t4*0.3+2)*3,Math.sin(t4*0.4+1)*2,2);
-    camera.rotation.z=Math.sin(t4*0.05)*0.02;
-
-    renderer.render(scene,camera);
-    requestAnimationFrame(render);
+    cl1.position.set(Math.cos(t4*0.4)*3,Math.sin(t4*0.3)*2,2);cl2.position.set(Math.cos(t4*0.3+2)*3,Math.sin(t4*0.4+1)*2,2);
+    camera.rotation.z=Math.sin(t4*0.05)*0.02;renderer.render(scene,camera);requestAnimationFrame(render);
   }
-  render();
-  window.addEventListener('resize',resize);
+  render();window.addEventListener('resize',resize);
 })();
 </script>
 </body>
