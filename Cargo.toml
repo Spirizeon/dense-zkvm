@@ -1,0 +1,42 @@
+[package]
+name = "densezk-sdk"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# For cryptographic finite fields and curves
+ark-ff = "0.5.0"
+ark-ec = "0.5.0"
+ark-serialize = "0.5.0"
+ark-bn254 = "0.5.0"
+
+# For poseidon hashing
+light-poseidon = "0.4.0"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Groth16 proving (local)
+ark-groth16 = "0.5.0"
+ark-relations = "0.5.0"
+ark-snark = "0.5.0"
+ark-std = "0.5.0"
+rand = "0.8"
+
+# WASM bindings
+wasm-bindgen = "0.2"
+serde-wasm-bindgen = "0.6"
+console_error_panic_hook = "0.1"
+
+# getrandom for WASM compatibility
+getrandom = { version = "0.2", features = ["js"] }
+
+thiserror = "1.0"
+
+[profile.release]
+opt-level = "s"
+lto = true

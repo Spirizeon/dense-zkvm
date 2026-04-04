@@ -1,0 +1,31 @@
+{
+  "name": "@densezk/react-native",
+  "version": "0.1.0",
+  "description": "React Native SDK for DenseZK -- on-device zero-knowledge proof generation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:wasm": "wasm-pack build .. --target bundler --release --out-dir react-native-sdk/pkg",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "react-native": ">=0.70.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/react-native": "^0.73.0"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.70.0"
+  },
+  "license": "MIT",
+  "keywords": [
+    "zero-knowledge",
+    "zk-snark",
+    "groth16",
+    "react-native",
+    "privacy",
+    "cryptography"
+  ]
+}

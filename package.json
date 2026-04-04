@@ -1,0 +1,28 @@
+{
+  "name": "densezk-circuits",
+  "version": "0.1.0",
+  "description": "Circom circuits implementing the DenseZK zkVM for privacy-preserving social networking (Draft v0.1)",
+  "scripts": {
+    "install:deps": "npm install circomlib snarkjs",
+    "compile:merkle":   "circom circuits/merkle_membership.circom   --r1cs --wasm --sym -o build/merkle_membership   -l node_modules",
+    "compile:nullifier":"circom circuits/nullifier.circom            --r1cs --wasm --sym -o build/nullifier           -l node_modules",
+    "compile:commit":   "circom circuits/content_commitment.circom  --r1cs --wasm --sym -o build/content_commitment  -l node_modules",
+    "compile:follower": "circom circuits/follower_threshold.circom  --r1cs --wasm --sym -o build/follower_threshold  -l node_modules",
+    "compile:distance": "circom circuits/social_distance.circom     --r1cs --wasm --sym -o build/social_distance     -l node_modules",
+    "compile:sig":      "circom circuits/verify_sig.circom          --r1cs --wasm --sym -o build/verify_sig          -l node_modules",
+    "compile:all": "npm run compile:merkle && npm run compile:nullifier && npm run compile:commit && npm run compile:follower && npm run compile:distance && npm run compile:sig",
+    "setup:merkle":    "node scripts/setup.js merkle_membership",
+    "setup:follower":  "node scripts/setup.js follower_threshold",
+    "setup:distance":  "node scripts/setup.js social_distance",
+    "setup:commit":    "node scripts/setup.js content_commitment",
+    "bench": "node scripts/benchmark.js",
+    "count": "node scripts/count_constraints.js"
+  },
+  "dependencies": {
+    "circomlib": "^2.0.5",
+    "snarkjs": "^0.7.4"
+  },
+  "devDependencies": {
+    "circom": "^2.1.6"
+  }
+}
