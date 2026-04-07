@@ -9,7 +9,22 @@ The SDK implements a local proving pipeline. All cryptographic operations run in
 - **Witness generation** runs on-device using Poseidon hashing over the BN254 scalar field. Memory footprint is minimal.
 - **Proving** runs locally using ark-groth16. A circuit-specific trusted setup is performed once, then proofs are generated and verified before being returned.
 
-No network calls, no external servers.
+No network calls, no external servers (unless using the optional HTTP server).
+
+## System Architecture
+
+```
++------------------+          +------------------+          +------------------+
+|  Flutter Mobile  |  HTTP    |  DenseZK Server  |  Rust    |  Proving Core    |
+|  App             |<-------->|  (actix-web)     |<-------->|  (ark-groth16)   |
+|                  |  REST    |                  |  FFI     |                  |
+|  - Execute Flow  |          |  - /health       |          |  - Poseidon      |
+|  - Witness       |          |  - /witness      |          |  - Groth16       |
+|  - Prove         |          |  - /prove        |          |  - BN254         |
+|  - Hash          |          |  - /execute_flow |          |                  |
+|  - Stress Test   |          |  - /poseidon_hash|          |                  |
++------------------+          +------------------+          +------------------+
+```
 
 ## Dual-Target Compilation
 
@@ -29,7 +44,8 @@ src/
 ├── lib.rs              # Library root, re-exports, high-level flow
 ├── main.rs             # Binary example
 ├── bin/
-│   └── stress.rs       # Stress test binary
+│   ├── stress.rs       # Stress test binary
+│   └── server.rs       # HTTP server binary (actix-web)
 ├── error.rs            # DenseZKError enum
 ├── wasm.rs             # WASM bindings (wasm32 only)
 ├── crypto/
@@ -44,6 +60,16 @@ src/
 └── prover/
     ├── mod.rs
     └── local.rs        # LocalProver, ZKProof, DenseZKCircuit
+
+densezk_mobile_app/     # Flutter mobile application
+├── lib/
+│   ├── main.dart       # App entry point
+│   ├── models/         # Data models
+│   ├── services/       # HTTP API client
+│   ├── providers/      # State management
+│   ├── screens/        # UI screens
+│   └── widgets/        # Reusable widgets
+└── pubspec.yaml
 
 react-native-sdk/       # React Native TypeScript wrapper
 ├── package.json
@@ -99,6 +125,26 @@ The WASM module exposes three entry points to JavaScript:
 - `execute_flow(sender, receiver, weight, graph_root, threshold)` -- one-shot, returns JSON string of `ZKProof`
 
 All values cross the WASM boundary as JSON strings or primitive types (`u64`, `&str`). The TypeScript wrapper in `react-native-sdk/` handles serialization and exposes idiomatic `Client` and `Prover` classes.
+
+### 5. HTTP Server Flow (`server.rs`)
+
+The HTTP server exposes REST endpoints that wrap the core proving functions:
+
+- `GET /health` -- returns server status, uptime, and request count
+- `POST /witness` -- accepts `sender_id`, `receiver_id`, `weight`; returns `ClientWitness` JSON
+- `POST /prove` -- accepts full inputs; runs witness + prove; returns `ZKProof` JSON
+- `POST /execute_flow` -- same as `/prove` but uses the high-level flow function
+- `POST /poseidon_hash` -- accepts edge inputs; returns Poseidon hash string
+
+All endpoints use `actix-web` with CORS enabled for browser/mobile access. Errors are returned as JSON with `{"error": "message"}` format.
+
+### 6. Flutter Mobile App
+
+The Flutter app communicates with the HTTP server via REST API:
+
+1. `DenseZkApiService` handles HTTP requests with timeouts and error parsing
+2. `DenseZkProvider` manages state using the Provider pattern
+3. Screens present forms for input and display results with copy-to-clipboard support
 
 ## Type Reference
 

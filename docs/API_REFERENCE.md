@@ -430,4 +430,184 @@ interface ZKProof {
   proof_bytes: number[];
   root_commitment: string;
 }
+
+---
+
+## HTTP Server REST API
+
+The DenseZK server exposes the following REST endpoints. All requests and responses use JSON.
+
+### `GET /health`
+
+Returns server health status.
+
+**Response:**
+
+```json
+{
+  "status": "ok",
+  "uptime_seconds": 12345,
+  "total_requests": 42
+}
+```
+
+### `POST /witness`
+
+Creates a witness with Poseidon commitment.
+
+**Request:**
+
+```json
+{
+  "sender_id": 456,
+  "receiver_id": 789,
+  "weight": 1
+}
+```
+
+**Response (200):**
+
+```json
+{
+  "edge": {
+    "sender_id": 456,
+    "receiver_id": 789,
+    "weight": 1
+  },
+  "commitment": "3227429301273914876261610954147013817301286893576706611663322465376918135905"
+}
+```
+
+### `POST /prove`
+
+Generates a Groth16 proof from inputs.
+
+**Request:**
+
+```json
+{
+  "sender_id": 456,
+  "receiver_id": 789,
+  "weight": 1,
+  "graph_root": "0xabc123",
+  "threshold": 1
+}
+```
+
+**Response (200):**
+
+```json
+{
+  "proof_bytes": [1, 2, 3, ...],
+  "root_commitment": "0xabc123"
+}
+```
+
+### `POST /execute_flow`
+
+Full witness + prove flow (same interface as `/prove`).
+
+**Request:** Same as `/prove`
+
+**Response:** Same as `/prove`
+
+### `POST /poseidon_hash`
+
+Hashes a graph edge with Poseidon.
+
+**Request:**
+
+```json
+{
+  "sender_id": 456,
+  "receiver_id": 789,
+  "weight": 1
+}
+```
+
+**Response (200):**
+
+```json
+{
+  "hash": "3227429301273914876261610954147013817301286893576706611663322465376918135905"
+}
+```
+
+### Error Response
+
+All endpoints return errors in this format:
+
+```json
+{
+  "error": "Description of the error"
+}
+```
+
+---
+
+## Flutter Mobile App
+
+### Models
+
+Located in `densezk_mobile_app/lib/models/densezk_models.dart`:
+
+- `GraphEdge` -- sender/receiver/weight
+- `PublicInputs` -- graph_root/threshold
+- `ClientWitness` -- edge + commitment
+- `ZKProof` -- proof_bytes + root_commitment (includes `proofHex` getter)
+- `ServerHealth` -- status/uptime/totalRequests
+
+### API Service
+
+Located in `densezk_mobile_app/lib/services/densezk_api_service.dart`:
+
+```dart
+class DenseZkApiService {
+  DenseZkApiService({String? baseUrl});
+  void setBaseUrl(String url);
+
+  Future<ServerHealth> checkHealth();
+  Future<ClientWitness> createWitness({senderId, receiverId, weight});
+  Future<ZKProof> prove({senderId, receiverId, weight, graphRoot, threshold});
+  Future<ZKProof> executeFlow({senderId, receiverId, weight, graphRoot, threshold});
+  Future<String> poseidonHash({senderId, receiverId, weight});
+  Future<Map<String, dynamic>> runStressTest({iterations, ...});
+}
+```
+
+### Provider
+
+Located in `densezk_mobile_app/lib/providers/densezk_provider.dart`:
+
+```dart
+class DenseZkProvider extends ChangeNotifier {
+  bool get isConnected;
+  bool get isLoading;
+  String get error;
+  ClientWitness? get lastWitness;
+  ZKProof? get lastProof;
+  ServerHealth? get health;
+  Map<String, dynamic>? get stressResults;
+
+  void setServerUrl(String url);
+  Future<bool> checkConnection();
+  Future<ClientWitness?> createWitness({...});
+  Future<ZKProof?> prove({...});
+  Future<ZKProof?> executeFlow({...});
+  Future<String?> poseidonHash({...});
+  Future<Map<String, dynamic>?> runStressTest({...});
+  void clearResults();
+}
+```
+
+### Screens
+
+| Screen | Path | Purpose |
+|---|---|---|
+| `HomeScreen` | `/` | Feature navigation + connection status |
+| `ExecuteFlowScreen` | `/execute` | One-shot proof generation |
+| `WitnessScreen` | `/witness` | Poseidon commitment generation |
+| `ProveScreen` | `/prove` | Step-by-step witness then prove |
+| `PoseidonHashScreen` | `/poseidon` | Direct Poseidon hashing |
+| `StressTestScreen` | `/stress` | Performance benchmarking |
 ```
