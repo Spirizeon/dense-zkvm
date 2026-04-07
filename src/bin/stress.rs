@@ -4,8 +4,8 @@ use std::time::Instant;
 
 use densezk_sdk::{DenseClient, LocalProver, PublicInputs};
 
-const NUM_THREADS: usize = 500;
-const PROOFS_PER_THREAD: usize = 2000;
+const NUM_THREADS: usize = 32;
+const PROOFS_PER_THREAD: usize = 500;
 
 static TOTAL_PROOFS: AtomicU64 = AtomicU64::new(0);
 static TOTAL_ERRORS: AtomicU64 = AtomicU64::new(0);
